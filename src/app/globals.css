@@ -1,3 +1,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background-color: #f1f5f9;
+  background-color: #fff;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+#todo input {
+  display: none;
+}
+
+#todo span {
+  display: inline-block;
+  position: relative;
+  height: 1.3rem;
+  width: 1.3rem;
+  border: 1px solid #6c6c6c;
+  border-radius: 100%;
+  transition: all 0.7s;
+}
+
+#todo {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+#todo input:checked~span {
+  background-color: #2282ff;
+  border-color: #2282ff;
+}
+
+#todo input:checked~p {
+  text-decoration: line-through;
+  opacity: .3;
+}
+
+#todo input:checked~span:after {
+  opacity: 1;
+}
+
+#todo span:after {
+  content: "";
+  position: absolute;
+  border: solid white;
+  border-width: 0 0.2rem 0.2rem 0;
+  transform: rotate(45deg);
+  width: 0.38rem;
+  height: .7rem;
+  inset: 0 0 1px 0;
+  margin: auto;
+  opacity: 0;
+  transition: 0.3s ease;
+}
