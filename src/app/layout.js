@@ -15,10 +15,10 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
       <div className="absolute top-0 -z-10 h-full w-full bg-[#fafafa]"><div className="absolute bottom-auto left-auto right-0 top-0 h-[500px] w-[500px] -translate-x-[30%] translate-y-[20%] rounded-full bg-[rgba(173,109,244,0.5)] opacity-50 blur-[80px]"></div></div>
         <div id="app" className="relative flex text-white">
-          <aside className="py-6  bg-[#1d1f21]">
+          <aside className="py-7 bg-[#1d1f21]">
             <Aside />
           </aside>
-          <main className="relative grow px-20 py-6 bg-[#101214]">
+          <main className="relative grow px-20 py-7 bg-[#101214]">
             {children}
           </main>
         </div>
