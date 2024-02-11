@@ -1,4 +1,3 @@
-
 function WorkspaceCard({work}) {
   return (
 
@@ -12,14 +11,14 @@ function WorkspaceCard({work}) {
       <h3 className="font-semibold text-lg mt-3">{work.title}</h3>
       <p className="text-gray-400">{work.description}</p>
       <div className="mt-4 flex flex-col gap-2">
-        { work.subtask && work.subtask.map((task, index) => (
+        { work.subtask.length ? work.subtask.map((task, index) => (
           <label key={index} id="todo" className="flex items-center gap-2">
             <input type="checkbox" name="" id="" />
             <span></span>
             <p className="text-base">{task}</p>
           </label>
         ))
-
+          : ""
         }
       </div>
     </div>
