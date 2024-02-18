@@ -32,7 +32,7 @@ function Modal({modal,WORKS,setWORKS,typeBoard}) {
     tagsRef.current.value = "";
   }
 
-  const handleSubtask = (evt) => {
+  const handleSubtask = () => {
     setSubtasks([...subtasks, subtaskRef.current.value]);
     subtaskRef.current.value = "";
   }
@@ -43,6 +43,7 @@ function Modal({modal,WORKS,setWORKS,typeBoard}) {
     <dialog ref={modal} className="min-h-[400px] w-[468px] z-10 bg-[#323940] text-white p-8 rounded-xl outiline-none">
       <form onSubmit={handleSubmit} ref={formRef}
        className="flex flex-col gap-2">
+        <button type="submit" disabled class="none" aria-hidden="true"></button>
         <label className="flex flex-col font-semibold gap-3 tracking-wide">
           Title
           <input required name="title" className="bg-[#45505a] p-3 rounded-md" type="text" />
@@ -77,7 +78,8 @@ function Modal({modal,WORKS,setWORKS,typeBoard}) {
               <span></span> 
             </div>
             <div className="flex w-full">
-              <input ref={subtaskRef} placeholder="New task" name="subtasks" className="grow outline-0 bg-[#45505a] p-2 rounded-l-md" type="text" />
+              <input onKeyUp={(evt) => {if (evt.code === "Enter") handleSubtask()}}
+                ref={subtaskRef} placeholder="New task" name="subtasks" className="grow outline-0 bg-[#45505a] p-2 rounded-l-md" type="text" />
               <button onClick={handleSubtask} type="button" className="bg-slate-500 p-2 rounded-r-md">Enter</button>
             </div>
           </div>
