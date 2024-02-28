@@ -14,6 +14,7 @@ function Modal({modal,WORKS,setWORKS,typeBoard}) {
     const formData = new FormData(formRef.current);
     const {title, description} = Object.fromEntries(formData);
     setWORKS([{
+      id: crypto.randomUUID(),
       type: typeBoard,
       title,
       description,
@@ -43,7 +44,7 @@ function Modal({modal,WORKS,setWORKS,typeBoard}) {
     <dialog ref={modal} className="min-h-[400px] w-[468px] z-10 bg-[#323940] text-white p-8 rounded-xl outiline-none">
       <form onSubmit={handleSubmit} ref={formRef}
        className="flex flex-col gap-2">
-        <button type="submit" disabled class="none" aria-hidden="true"></button>
+        <button type="submit" disabled className="none" aria-hidden="true"></button>
         <label className="flex flex-col font-semibold gap-3 tracking-wide">
           Title
           <input required name="title" className="bg-[#45505a] p-3 rounded-md" type="text" />
